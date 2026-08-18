@@ -1,0 +1,314 @@
+/* Reset global de margens, espaçamentos e ajuste da caixa de renderização dos elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+/* Estilização base do corpo da página com fundo escuro e tipografia padrão */
+body {
+    background: #050608;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+ 
+/* Padronização da fonte para elementos interativos e formulários */
+a, button, input, select {
+    font-family: 'Poppins', sans-serif;
+}
+ 
+/* Barra de navegação superior/cabeçalho principal */
+.topo {
+    min-height: 100px;
+    padding: 20px 45px;
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    border-bottom: 1px solid #292929;
+    background: #0b0d0f;
+}
+ 
+/* Ajuste de tamanho da logo */
+.logo img {
+    width: 150px;
+}
+ 
+/* Container centralizado do título no topo (ocupa todo o espaço disponível) */
+.titulo {
+    flex: 1;
+}
+ 
+.titulo h1 {
+    font-size: 26px;
+}
+ 
+.titulo p {
+    color: #999;
+    font-size: 13px;
+    margin-top: 3px;
+}
+ 
+/* Área com as informações do perfil do administrador */
+.admin {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+ 
+.admin strong {
+    display: block;
+    font-size: 14px;
+}
+ 
+.admin small {
+    color: #888;
+    font-size: 11px;
+}
+ 
+/* Foto/Avatar circular do usuário com borda destacada em laranja */
+.avatar {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #ff7200;
+    border-radius: 50%;
+    color: #ff7200;
+}
+ 
+/* Container principal do conteúdo da página */
+.conteudo {
+    max-width: 1250px;
+    margin: auto;
+    padding: 40px;
+}
+ 
+/* Cabeçalho do conteúdo com alinhamento entre o título e ações */
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+ 
+.cabecalho h2 {
+    font-size: 23px;
+}
+ 
+.cabecalho p {
+    color: #888;
+    font-size: 13px;
+    margin-top: 5px;
+}
+ 
+/* Botão/Link com estilo vazado para voltar à página anterior */
+.voltar {
+    color: #ff7200;
+    border: 1px solid #ff7200;
+    padding: 10px 15px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 13px;
+}
+ 
+.voltar i {
+    margin-right: 7px;
+}
+ 
+/* Container estilizado da tabela com suporte a rolagem horizontal */
+.tabela {
+    background: #0d0f11;
+    border: 1px solid #292929;
+    border-radius: 12px;
+    overflow-x: auto;
+}
+ 
+/* Estrutura principal da tabela de dados */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 850px;
+}
+ 
+/* Cabeçalho da tabela */
+th {
+    background: #151719;
+    color: #aaa;
+    text-align: left;
+    padding: 16px;
+    font-size: 12px;
+}
+ 
+/* Células de dados da tabela */
+td {
+    padding: 16px;
+    border-top: 1px solid #292929;
+    font-size: 13px;
+}
+ 
+/* Efeito visual de destaque ao passar o mouse sobre as linhas da tabela */
+tr:hover {
+    background: #111315;
+}
+ 
+/* Estilo base para os badges de status */
+.ativo, .desativado {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 11px;
+}
+ 
+/* Badge de status ativo (verde) */
+.ativo {
+    color: #35d36b;
+    background: #102418;
+}
+ 
+/* Badge de status desativado (vermelho) */
+.desativado {
+    color: #e45b5b;
+    background: #281515;
+}
+ 
+/* Estilo base para os botões de ação nas linhas da tabela */
+.editar, .excluir, .ativar {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: 1px solid;
+    background: transparent;
+    cursor: pointer;
+    margin-right: 5px;
+}
+ 
+/* Botão de edição (laranja) */
+.editar {
+    color: #ff7200;
+    border-color: #ff7200;
+}
+ 
+/* Botão de exclusão (vermelho) */
+.excluir {
+    color: #e45b5b;
+    border-color: #e45b5b;
+}
+ 
+/* Botão de ativação (verde) */
+.ativar {
+    color: #35d36b;
+    border-color: #35d36b;
+}
+ 
+/* Container do formulário (inicialmente oculto para interações em JS) */
+.formulario {
+    display: none;
+    margin-top: 25px;
+    padding: 25px;
+    background: #0d0f11;
+    border: 1px solid #292929;
+    border-radius: 12px;
+}
+ 
+/* Cabeçalho do formulário com título e botão de fechar */
+.form-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+ 
+.form-titulo h2 {
+    font-size: 20px;
+}
+ 
+.form-titulo button {
+    border: none;
+    background: none;
+    color: #aaa;
+    font-size: 25px;
+    cursor: pointer;
+}
+ 
+/* Layout do formulário em duas colunas usando CSS Grid */
+.campos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+ 
+.campo label {
+    display: block;
+    color: #aaa;
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+ 
+/* Estilização dos campos de entrada de texto e seleção */
+.campo input, .campo select {
+    width: 100%;
+    height: 45px;
+    padding: 0 12px;
+    background: #1b1d1f;
+    border: 1px solid #383838;
+    border-radius: 7px;
+    color: white;
+    outline: none;
+}
+ 
+/* Botão principal para salvar os dados do formulário */
+.salvar {
+    width: 100%;
+    height: 48px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 7px;
+    background: #ff7200;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+ 
+.salvar i {
+    margin-right: 7px;
+}
+ 
+/* Rodapé simples da página */
+footer {
+    text-align: center;
+    color: #555;
+    font-size: 11px;
+    padding: 20px;
+}
+ 
+/* Regras de responsividade para telas com largura até 700px (Mobile/Tablets pequenos) */
+@media (max-width: 700px) {
+ 
+    /* Ajusta a barra superior para permitir quebras de linha */
+    .topo {
+        padding: 20px;
+        flex-wrap: wrap;
+    }
+ 
+    /* Reordena o título para a parte inferior do topo em dispositivos móveis */
+    .titulo {
+        order: 3;
+        width: 100%;
+    }
+ 
+    .conteudo {
+        padding: 25px 20px;
+    }
+ 
+    /* Transforma o grid do formulário de 2 colunas para 1 coluna */
+    .campos {
+        grid-template-columns: 1fr;
+    }
+ 
+    /* Ajusta o cabeçalho para disposição vertical dos elementos */
+    .cabecalho {
+        align-items: flex-start;
+        gap: 15px;
+        flex-direction: column;
+    }
+}

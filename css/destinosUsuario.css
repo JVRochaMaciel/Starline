@@ -1,0 +1,503 @@
+/* Reseta margens, espaçamentos e ajusta o cálculo do tamanho dos elementos */
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* Configurações gerais do corpo da página (tema escuro e tipografia) */
+body
+{
+    background:#050608;
+    color:white;
+    font-family:'Poppins',sans-serif;
+}
+
+/* Barra lateral fixa à esquerda */
+.sidebar
+{
+    position:fixed;
+    left:0;
+    top:0;
+    z-index:10;
+    width:250px;
+    height:100vh;
+    background:#0b0d0f;
+    border-right:1px solid #252525;
+    padding:20px 15px;
+    display:flex;
+    flex-direction:column;
+}
+
+/* Área da logo na barra lateral */
+.logo-area
+{
+    text-align: center;
+    padding: 10px 0 30px;
+}
+
+/* Imagem da logo */
+.logo-area img
+{
+    width:180px;
+    max-width: 100%;
+}
+
+/* Container dos links de navegação */
+nav
+{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+/* Estilização dos links do menu e do botão sair */
+nav a,.sair a
+{
+    height:52px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:0 22px;
+    color:white;
+    text-decoration:none;
+    border-radius:9px;
+}
+
+/* Efeito hover nos links */
+nav a:hover,.sair a:hover
+{
+    background:#181818;
+}
+
+/* Estilo para o item de menu ativo */
+nav a.ativo
+{
+    color:#ff7200;
+    background:#21160e;
+    border:1px solid #ff7200;
+}
+
+/* Ícones dos links */
+nav i,.sair i
+{
+    width:20px;
+    font-size:20px;
+    text-align:center;
+}
+
+/* Seção de saída na parte inferior da sidebar */
+.sair
+{
+    margin-top:auto;
+    border-top:1px solid #292929;
+    padding-top:15px;
+}
+
+/* Container do conteúdo principal (deslocado para não cobrir a sidebar) */
+.conteudo
+{
+    margin-left:250px;
+    padding:35px 40px;
+    min-height:100vh;
+}
+
+/* Cabeçalho do conteúdo principal */
+.topo
+{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+/* Título principal do topo */
+.topo h1
+{
+    font-size:34px;
+}
+
+/* Subtítulo ou texto descritivo do topo */
+.topo p
+{
+    color:#999;
+    margin-top:5px;
+}
+
+/* Área de perfil do usuário no topo */
+.usuario
+{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+/* Avatar do usuário com borda destacada */
+.avatar
+{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:2px solid #ff7200;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#ff7200;
+    background:#151515;
+}
+
+/* Ícone de seta/menu do usuário */
+.usuario>i
+{
+    color:#aaa;
+    font-size:12px;
+}
+
+/* Seção de filtros e busca em grid */
+.filtros
+{
+    display:grid;
+    grid-template-columns:1fr 250px 220px 140px;
+    gap:15px;
+    padding:20px;
+    background:#0d0f11;
+    border:1px solid #292929;
+    border-radius:14px;
+    margin-bottom:20px;
+}
+
+/* Container do campo de busca com ícone */
+.busca
+{
+    position:relative;
+}
+
+/* Ícone posicionado dentro do campo de busca */
+.busca i
+{
+    position:absolute;
+    left:18px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#aaa;
+}
+
+/* Inputs de texto e selects da área de filtros */
+.busca input,.filtros select
+{
+    width:100%;
+    height:48px;
+    border-radius:8px;
+    border:1px solid #292929;
+    background:#151719;
+    color:white;
+    outline:none;
+    padding:0 15px;
+}
+
+/* Espaçamento interno à esquerda para não sobrepor o ícone de busca */
+.busca input
+{
+    padding-left:45px;
+}
+
+/* Botão de aplicar/filtrar */
+.filtros button
+{
+    height:48px;
+    border:1px solid #ff7200;
+    border-radius:8px;
+    background:transparent;
+    color:#ff7200;
+    cursor:pointer;
+    font-weight:600;
+}
+
+/* Grid para exibição dos cards de destinos */
+.destinos
+{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+/* Card individual de destino */
+.card-destino
+{
+    overflow:hidden;
+    background:#0d0f11;
+    border:1px solid #292929;
+    border-radius:14px;
+}
+
+/* Container da imagem do card */
+.imagem
+{
+    height:280px;
+    position:relative;
+}
+
+/* Imagem do destino ajustada para preencher o container */
+.imagem img
+{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* Tag/Badge sobreposta na imagem */
+.imagem span
+{
+    position:absolute;
+    left:15px;
+    top:15px;
+    padding:7px 12px;
+    border:1px solid #ff7200;
+    border-radius:8px;
+    background:#080808;
+    color:white;
+    font-size:12px;
+}
+
+/* Ícone dentro da tag sobreposta na imagem */
+.imagem span i
+{
+    color:#ff7200;
+    margin-right:5px;
+}
+
+/* Bloco de informações do card */
+.informacoes
+{
+    padding:20px;
+}
+
+/* Título do destino */
+.informacoes h2
+{
+    font-size:23px;
+    margin-bottom:10px;
+}
+
+/* Descrição do destino */
+.informacoes>p
+{
+    color:#aaa;
+    font-size:13px;
+    line-height:1.7;
+    min-height:65px;
+}
+
+/* Rodapé do card com preço e duração */
+.detalhes
+{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-top:1px solid #292929;
+    margin-top:15px;
+    padding-top:15px;
+}
+
+/* Rótulos pequenos nos detalhes */
+.detalhes small
+{
+    display:block;
+    color:#999;
+    font-size:11px;
+}
+
+/* Destaque para o valor do preço */
+.detalhes strong
+{
+    display:block;
+    color:#ff7200;
+    font-size:19px;
+    margin-top:3px;
+}
+
+/* Bloco de duração da viagem */
+.duracao
+{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+/* Ícone de relógio/duração */
+.duracao>i
+{
+    font-size:20px;
+    color:#aaa;
+}
+
+/* Texto destacando o tempo de duração */
+.duracao strong
+{
+    color:white;
+    font-size:13px;
+}
+
+/* Botão de ação do card (ex: "Ver mais" / "Reservar") */
+.informacoes button
+{
+    width:100%;
+    margin-top:18px;
+    height:45px;
+    border:1px solid #ff7200;
+    border-radius:7px;
+    background:transparent;
+    color:white;
+    cursor:pointer;
+    font-weight:500;
+}
+
+/* Ícone alinhado à direita dentro do botão do card */
+.informacoes button i
+{
+    float:right;
+    color:#ff7200;
+}
+
+/* Banner de contato/suporte do consultor */
+.consultor
+{
+    margin-top:25px;
+    padding:22px;
+    min-height:120px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    background:linear-gradient(90deg,#0d0f11,#111315);
+    border:1px solid #292929;
+    border-radius:14px;
+}
+
+/* Ícone arredondado da área do consultor */
+.icone-consultor
+{
+    width:65px;
+    height:65px;
+    border:2px solid #ff7200;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#ff7200;
+    font-size:27px;
+}
+
+/* Título do banner do consultor */
+.consultor h2
+{
+    font-size:18px;
+}
+
+/* Subtítulo do banner do consultor */
+.consultor p
+{
+    color:#999;
+    font-size:13px;
+}
+
+/* Botão de ação no banner do consultor */
+.consultor button
+{
+    margin-left:auto;
+    padding:13px 22px;
+    border:1px solid #ff7200;
+    border-radius:7px;
+    background:transparent;
+    color:#ff7200;
+    cursor:pointer;
+}
+
+/* Rodapé inferior da página */
+footer
+{
+    text-align:center;
+    color:#666;
+    font-size:11px;
+    padding:25px;
+}
+
+/* Responsividade: Dispositivos com largura até 1100px (Tablets em modo paisagem / Desktops pequenos) */
+@media(max-width:1100px)
+{
+    .filtros
+    {
+        grid-template-columns:1fr 1fr;
+    }
+
+    .destinos
+    {
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+/* Responsividade: Dispositivos com largura até 750px (Smartphones e Tablets pequenos) */
+@media(max-width:750px)
+{
+    /* Encolhe a barra lateral mantendo apenas ícones */
+    .sidebar{
+        width:70px;
+    }
+
+    /* Reduz a imagem da logo */
+    .logo-area img
+    {
+        width:50px;
+    }
+
+    /* Esconde os textos dos links da sidebar */
+    nav span,.sair span
+    {
+        display:none;
+    }
+
+    /* Centraliza os ícones nos links da sidebar */
+    nav a,.sair a
+    {
+        justify-content:center;
+        padding:0;
+    }
+
+    /* Ajusta o recuo do conteúdo principal para a nova largura da sidebar */
+    .conteudo
+    {
+        margin-left:70px;
+        padding:20px;
+    }
+
+    /* Exibe os cards de destino em coluna única */
+    .destinos
+    {
+        grid-template-columns:1fr;
+    }
+
+    /* Alinha o topo ao início */
+    .topo
+    {
+        align-items:flex-start;
+    }
+
+    /* Esconde o nome do usuário e ícone secundário no topo */
+    .usuario strong,.usuario>i
+    {
+        display:none;
+    }
+
+    /* Reorganiza o banner do consultor na vertical */
+    .consultor
+    {
+        flex-direction:column;
+        text-align:center;
+    }
+
+    /* Reseta a margem do botão do consultor para alinhamento central */
+    .consultor button
+    {
+        margin:0;
+    }
+}

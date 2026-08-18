@@ -1,0 +1,176 @@
+/* Reseta margens, espaçamentos, ajusta a caixa de modelo e define a fonte padrão */
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+/* Estilização do corpo da página (ocupação de tela cheia com imagem de fundo) */
+body
+{
+    height:100vh;
+    background:url("../img/background-login.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    overflow:hidden;
+}
+
+/* Camada de escurecimento sobre a imagem de fundo para centralizar o formulário */
+.overlay
+{
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.35);
+}
+
+/* Container principal do formulário com efeito de vidro fosco (Glassmorphism) */
+.login-box
+{
+    width:420px;
+    padding:45px;
+    border-radius:20px;
+    background:rgba(20,20,20,.55);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:
+    0 0 35px rgba(255,106,0,.25);
+    text-align:center;
+}
+
+/* Logotipo dentro do card de login */
+.logo
+{
+    width:170px;
+    margin-bottom:25px;
+}
+
+/* Título principal dentro do card */
+.login-box h1
+{
+    color:white;
+    font-size:32px;
+}
+
+/* Subtítulo ou texto explicativo dentro do card */
+.login-box p
+{
+    color:#bbbbbb;
+    margin-bottom:35px;
+}
+
+/* Container relativo para agrupamento de input e ícones */
+.input-box
+{
+    position:relative;
+    margin-bottom:20px;
+}
+
+/* Estilização dos campos de texto/senha */
+.input-box input
+{
+    width:100%;
+    height:55px;
+    padding-left:45px;
+    padding-right:45px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    color:white;
+    background:#1d1d1d;
+    border:1px solid #444;
+    transition:.3s;
+}
+
+/* Efeito ao focar no campo de entrada (borda e brilho em destaque) */
+.input-box input:focus
+{
+    border:1px solid #ff6a00;
+    box-shadow:0 0 15px rgba(255,106,0,.4);
+}
+
+/* Ícone posicionado à esquerda dentro do campo de entrada */
+.input-box i:first-child
+{
+    position:absolute;
+    left:16px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#ff6a00;
+}
+
+/* Ícone de alternar visibilidade da senha (olho) posicionado à direita */
+.eye
+{
+    position:absolute;
+    right:16px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    color:white;
+}
+
+/* Botão principal de envio com gradiente */
+button
+{
+    width:100%;
+    height:55px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:600;
+    color:white;
+    background:linear-gradient(90deg,#ff6a00,#ff8c00);
+    transition:.3s;
+}
+
+/* Efeito ao passar o mouse sobre o botão (elevação e sombra) */
+button:hover
+{
+    transform:translateY(-2px);
+    box-shadow:0 0 20px rgba(255,106,0,.5);
+}
+
+/* Bloco de texto inferior (ex: "Não tem uma conta?") */
+span
+{
+    display:block;
+    margin-top:25px;
+    color:white;
+}
+
+/* Link de ação dentro do texto inferior */
+span a
+{
+    color:#ff6a00;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* Efeito hover no link do texto inferior */
+span a:hover
+{
+    text-decoration:underline;
+}
+
+/* Responsividade para telas menores ou dispositivos móveis até 500px */
+@media(max-width:500px)
+{
+    /* Ajusta a largura e o espaçamento interno do card */
+    .login-box{
+        width:90%;
+        padding:30px;
+    }
+    
+    /* Reduz o tamanho do logotipo */
+    .logo
+    {
+        width:130px;
+    }
+}

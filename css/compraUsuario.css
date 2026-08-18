@@ -1,0 +1,633 @@
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Configuração do fundo escuro da aplicação, cor do texto e fonte padrão */
+body 
+{
+    background: #050608;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Garante a mesma tipografia para botões e links de todo o sistema */
+button, a 
+{
+    font-family: 'Poppins', sans-serif;
+}
+
+/*NAVEGAÇÃO LATERAL (SIDEBAR)*/
+/* Container fixo da barra lateral esquerda */
+.sidebar
+{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background: #0b0d0f;
+    border-right: 1px solid #252525;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    z-index: 10; /* Garante que fique acima dos outros conteúdos */
+}
+
+/* Área superior do menu reservada para a marca/logotipo */
+.logo-area 
+{
+    text-align: center;
+    padding: 10px 0 30px;
+}
+
+/* Ajuste proporcional da imagem da logo */
+.logo-area img 
+{
+    width: 180px;
+    max-width: 100%;
+}
+
+/* Container que engloba a lista de links do menu */
+.menu 
+{
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Espaçamento entre as opções do menu */
+}
+
+/* Estilo individual de cada item/link de navegação */
+.menu-item 
+{
+    height: 52px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 22px;
+    border-radius: 9px;
+    color: white;
+    text-decoration: none;
+}
+
+/* Padronização do tamanho e alinhamento dos ícones do menu */
+.menu-item i 
+{
+    width: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* Efeito ao passar o mouse sobre os links do menu */
+.menu-item:hover 
+{
+    background: #181818;
+}
+
+/* Estilo para a opção/página que está atualmente ativa */
+.menu-item.ativo 
+{
+    background: #21160e;
+    color: #ff7200;
+    border: 1px solid #ff7200;
+}
+
+/* Seção inferior do menu (geralmente usada para Sair/Configurações) */
+.menu-final 
+{
+    margin-top: auto; /* Empurra o item para o final do container flex */
+    border-top: 1px solid #292929;
+    padding-top: 15px;
+}
+
+/*ESTRUTURA DE CONTEÚDO PRINCIPAL E CABEÇALHO*/
+/* Container principal ajustado para dar margem à barra lateral */
+.conteudo 
+{
+    margin-left: 250px; /* Mesma largura da sidebar */
+    min-height: 100vh;
+    padding: 30px 40px;
+}
+
+/* Cabeçalho do conteúdo com título e informações do usuário */
+.topo 
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.topo h1 
+{
+    font-size: 34px;
+}
+
+.topo p 
+{
+    color: #aaa;
+    margin-top: 5px;
+}
+
+/* Bloco com o perfil do usuário logado */
+.usuario 
+{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Ícone de avatar circular do usuário com borda destacada em laranja */
+.avatar 
+{
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 2px solid #ff7200;
+    color: #ff7200;
+    background: #151515;
+}
+
+/* Ícone da seta ao lado do nome do usuário */
+.usuario > i 
+{
+    color: #aaa;
+    font-size: 12px;
+}
+
+/* LAYOUT DA ÁREA DE COMPRA (FORMULÁRIO E RESUMO) */
+/* Grid dividindo a página entre a área de etapas e a barra lateral de resumo */
+.area-compra 
+{
+    display: grid;
+    grid-template-columns: 1fr 390px;
+    gap: 25px;
+}
+
+/* Caixas base com bordas e cantos arredondados */
+.formulario, .painel 
+{
+    background: #0d0f11;
+    border: 1px solid #292929;
+    border-radius: 14px;
+}
+
+.formulario 
+{
+    padding: 25px;
+}
+
+/* Espaçamento de cada etapa/passo da compra */
+.etapa 
+{
+    margin-bottom: 30px;
+}
+
+.etapa:last-child 
+{
+    margin-bottom: 0;
+}
+
+.etapa h2 
+{
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+
+/* Número circular indicativo de cada etapa (ex: ①, ②) */
+.etapa h2 span 
+{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+    border: 1px solid #ff7200;
+    border-radius: 50%;
+    color: #ff7200;
+    font-size: 14px;
+}
+
+/*ETAPA 1: CARD E SELEÇÃO DE DESTINOS*/
+/* Grade com os cards das opções de viagem/destino disponíveis */
+.destinos 
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.destino
+{
+    background: #101214;
+    border: 1px solid #292929;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Destaque para a viagem/destino que o usuário clicou/selecionou */
+.destino.selecionado 
+{
+    border: 1px solid #ff7200;
+}
+
+.destino img 
+{
+    width: 100%;
+    height: 145px;
+    object-fit: cover;
+    display: block;
+}
+
+.destino-info 
+{
+    padding: 15px;
+}
+
+.destino-info h3 
+{
+    font-size: 20px;
+}
+
+.destino-info p 
+{
+    color: #999;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.destino-info strong 
+{
+    display: block;
+    color: #ff7200;
+    font-size: 20px;
+    margin: 3px 0 12px;
+}
+
+/* Botão de seleção individual do card de destino */
+.destino-info button 
+{
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #ff7200;
+    border-radius: 7px;
+    background: transparent;
+    color: #ff7200;
+    cursor: pointer;
+}
+
+.destino.selecionado button 
+{
+    background: #5b2b00;
+}
+
+/*ETAPA 2: DETALHES E QUANTIDADE*/
+/* Estrutura dos campos informativos da viagem escolhida */
+.detalhes 
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.campo 
+{
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    border: 1px solid #292929;
+    border-radius: 9px;
+    background: #101214;
+}
+
+.campo > i 
+{
+    color: #ff7200;
+    font-size: 19px;
+}
+
+.campo div 
+{
+    flex: 1;
+}
+
+.campo small 
+{
+    color: #999;
+}
+
+.campo p 
+{
+    margin-top: 3px;
+}
+
+/* Seletor numérico (+ / -) para quantidade de ingressos/passagens */
+.quantidade 
+{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantidade button 
+{
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 6px;
+    background: #181818;
+    color: white;
+    cursor: pointer;
+}
+
+/*ETAPA 3: FORMAS DE PAGAMENTO E BOTÃO FINALIZAR*/
+/* Grade para exibição das alternativas de pagamento (Ex: PIX, Cartão, Boleto) */
+.pagamentos 
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.pagamento 
+{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 18px;
+    border: 1px solid #292929;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+/* Altera a borda do método selecionado via input radio marcado */
+.pagamento:has(input:checked) 
+{
+    border-color: #ff7200;
+}
+
+/* Altera a cor da bolinha/marcador do radio nativo */
+.pagamento input 
+{
+    accent-color: #ff7200;
+}
+
+.pagamento i 
+{
+    font-size: 22px;
+}
+
+/* Botão principal de confirmação e checkout */
+.btn-confirmar 
+{
+    width: 100%;
+    margin-top: 18px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #ff7200;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-confirmar i 
+{
+    margin-left: 8px;
+}
+
+/*PAINEL LATERAL DE RESUMO DA COMPRA E AVISOS*/
+.resumo 
+{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.painel 
+{
+    padding: 22px;
+}
+
+.painel h2 
+{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* Foto e informações do item que está sendo comprado */
+.resumo-destino
+{
+    display: flex;
+    gap: 15px;
+}
+
+.resumo-destino img 
+{
+    width: 115px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.resumo-destino h3 
+{
+    color: #ff7200;
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.resumo-destino p 
+{
+    color: #aaa;
+    font-size: 12px;
+    margin: 5px 0;
+}
+
+/* Divisor horizontal */
+.linha 
+{
+    height: 1px;
+    background: #292929;
+    margin: 20px 0;
+}
+
+/* Exibição dos valores (Subtotal, Taxas e Total) */
+.resumo-linha 
+{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    color: #ccc;
+}
+
+.resumo-linha.total 
+{
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.resumo-linha.total strong:last-child 
+{
+    color: #ff7200;
+}
+
+/* Caixa com mensagem/aviso explicativo */
+.aviso 
+{
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #292929;
+    border-radius: 8px;
+}
+
+.aviso i 
+{
+    color: #ff7200;
+    font-size: 20px;
+}
+
+.aviso p 
+{
+    color: #aaa;
+    font-size: 12px;
+}
+
+.aviso strong 
+{
+    color: #ff7200;
+}
+
+/* Selo/Bloco de informação sobre pagamento seguro */
+.seguranca 
+{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.seguranca > i 
+{
+    color: #ff7200;
+    font-size: 35px;
+}
+
+.seguranca h3 
+{
+    margin-bottom: 5px;
+}
+
+.seguranca p 
+{
+    color: #999;
+    font-size: 12px;
+}
+
+/* Rodapé do sistema */
+footer 
+{
+    text-align: center;
+    padding: 25px 0 10px;
+    color: #666;
+    font-size: 12px;
+}
+
+/*RESPONSIVIDADE (MEDIA QUERIES)*/
+/* Dispositivos intermediários (Tablets grandes / Telas médias) */
+@media (max-width: 1100px) 
+{
+    /* Empilha o formulário e o painel de resumo em uma única coluna */
+    .area-compra 
+    {
+        grid-template-columns: 1fr;
+    }
+
+    /* Coloca os painéis de resumo lado a lado quando empilhados */
+    .resumo 
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Dispositivos móveis e Tablets pequenos (Até 800px) */
+@media (max-width: 800px) 
+{
+    /* Encolhe a barra lateral mantendo apenas espaço para os ícones */
+    .sidebar 
+    {
+        width: 70px;
+        padding: 15px 10px;
+    }
+
+    .logo-area img 
+    {
+        width: 55px;
+    }
+
+    .menu-item 
+    {
+        justify-content: center;
+        padding: 0;
+        gap: 0;
+    }
+
+    /* Oculta os textos dos links da barra lateral */
+    .menu-item span 
+    {
+        display: none;
+    }
+
+    /* Reduz a margem esquerda para acompanhar a sidebar retraída */
+    .conteudo 
+    {
+        margin-left: 70px;
+        padding: 20px;
+    }
+
+    /* Força os grids a exibirem itens em coluna única */
+    .destinos,
+    .detalhes,
+    .pagamentos 
+    {
+        grid-template-columns: 1fr;
+    }
+
+    .resumo 
+    {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Telas pequenas de smartphones (Até 550px) */
+@media (max-width: 550px) 
+{
+    .conteudo 
+    {
+        padding: 15px;
+    }
+
+    .topo h1 
+    {
+        font-size: 26px;
+    }
+
+    /* Esconde informações secundárias do usuário no topo para economizar espaço */
+    .usuario strong,
+    .usuario > i 
+    {
+        display: none;
+    }
+}

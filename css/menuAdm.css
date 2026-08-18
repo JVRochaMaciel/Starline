@@ -1,0 +1,273 @@
+/* Reseta margens, espaçamentos e define a caixa de modelo padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Configurações globais do corpo da página (tema escuro e tipografia) */
+body {
+    background: #050608;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Garante a aplicação da fonte Poppins em links e botões */
+a, button {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Barra superior / Cabeçalho da página */
+.topo {
+    min-height: 100px;
+    padding: 20px 45px;
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    border-bottom: 1px solid #292929;
+    background: #0b0d0f;
+}
+
+/* Tamanho da imagem da logo no topo */
+.logo img {
+    width: 150px;
+}
+
+/* Container do título e descrição no topo (ocupa o espaço central disponível) */
+.titulo {
+    flex: 1;
+}
+
+/* Título principal do topo */
+.titulo h1 {
+    font-size: 26px;
+}
+
+/* Subtítulo ou descrição no topo */
+.titulo p {
+    color: #999;
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+/* Área com informações do administrador/usuário no topo */
+.admin {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Nome do administrador */
+.admin strong {
+    display: block;
+    font-size: 14px;
+}
+
+/* Cargo ou nível de permissão do administrador */
+.admin small {
+    color: #888;
+    font-size: 11px;
+}
+
+/* Ícone de avatar arredondado com borda em destaque */
+.avatar {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #ff7200;
+    border-radius: 50%;
+    color: #ff7200;
+}
+
+/* Container central de conteúdo da página */
+.conteudo {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px;
+}
+
+/* Bloco de mensagem de boas-vindas */
+.boas-vindas {
+    margin-bottom: 25px;
+}
+
+/* Título da seção de boas-vindas */
+.boas-vindas h2 {
+    font-size: 23px;
+}
+
+/* Texto descritivo da seção de boas-vindas */
+.boas-vindas p {
+    color: #888;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+/* Grid para organização dos cards em duas colunas */
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* Card individual de funcionalidade ou painel */
+.card {
+    min-height: 125px;
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: #0d0f11;
+    border: 1px solid #292929;
+    border-radius: 12px;
+}
+
+/* Efeito ao passar o mouse sobre o card */
+.card:hover {
+    border-color: #ff7200;
+}
+
+/* Container do ícone dentro do card */
+.icone {
+    width: 55px;
+    height: 55px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #191512;
+    border-radius: 10px;
+    color: #ff7200;
+    font-size: 23px;
+}
+
+/* Área de texto dentro do card */
+.info {
+    flex: 1;
+}
+
+/* Título do card */
+.info h3 {
+    font-size: 18px;
+}
+
+/* Descrição do card */
+.info p {
+    color: #888;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* Botão/Link de ação dentro do card */
+.card a {
+    padding: 10px 14px;
+    border: 1px solid #ff7200;
+    border-radius: 7px;
+    color: #ff7200;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/* Espaçamento do ícone interno no botão do card */
+.card a i {
+    margin-left: 7px;
+}
+
+/* Efeito hover no botão do card */
+.card a:hover {
+    background: #ff7200;
+    color: white;
+}
+
+/* Barra inferior de ações/navegação secundária */
+.acoes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #292929;
+}
+
+/* Links da barra de ações */
+.acoes a {
+    padding: 10px 15px;
+    color: #aaa;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+/* Espaçamento do ícone nos links de ações */
+.acoes i {
+    margin-right: 7px;
+}
+
+/* Efeito hover nos links de ações */
+.acoes a:hover {
+    color: #ff7200;
+}
+
+/* Estilo específico em vermelho para o link de Sair/Logout */
+.acoes .sair {
+    color: #e55353;
+}
+
+/* Rodapé inferior */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #555;
+    font-size: 11px;
+}
+
+/* Responsividade: Telas até 800px (Tablets e telas menores) */
+@media (max-width: 800px) {
+
+    /* Reduz o padding do topo e permite quebra de linha */
+    .topo {
+        padding: 20px;
+        flex-wrap: wrap;
+    }
+
+    /* Diminui a largura da logo */
+    .logo img {
+        width: 120px;
+    }
+
+    /* Move o título para abaixo do cabeçalho ocupando a largura total */
+    .titulo {
+        order: 3;
+        width: 100%;
+    }
+
+    /* Reduz o espaçamento do container principal */
+    .conteudo {
+        padding: 25px 20px;
+    }
+
+    /* Altera o grid de cards para 1 única coluna */
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Responsividade: Telas até 500px (Smartphones) */
+@media (max-width: 500px) {
+
+    /* Oculta os textos de nome/cargo do administrador para economizar espaço */
+    .admin div:last-child {
+        display: none;
+    }
+
+    /* Permite quebra de linha do conteúdo do card */
+    .card {
+        flex-wrap: wrap;
+    }
+
+    /* Expande o botão do card para a largura total da caixa */
+    .card a {
+        width: 100%;
+        text-align: center;
+    }
+}

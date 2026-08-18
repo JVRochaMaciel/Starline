@@ -1,0 +1,640 @@
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Define a cor de fundo ultra escura, cor do texto e a tipografia padrão */
+body 
+{
+    background: #050608;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Garante o uso da mesma fonte para elementos interativos */
+button, a 
+{
+    font-family: 'Poppins', sans-serif;
+}
+
+/*NAVEGAÇÃO LATERAL (SIDEBAR)*/
+/* Container da barra lateral fixada à esquerda da tela */
+.sidebar 
+{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background: #0b0d0f;
+    border-right: 1px solid #252525;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
+
+/* Área reservada para a logomarca no topo da sidebar */
+.logo-area 
+{
+    text-align: center;
+    padding: 10px 0 30px;
+}
+
+.logo-area img 
+{
+    width: 180px;
+    max-width: 100%;
+}
+
+/* Container com a lista de links do menu */
+.menu 
+{
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Espaçamento vertical entre os itens */
+}
+
+/* Estilização individual dos links do menu */
+.menu-item 
+{
+    height: 52px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 22px;
+    border-radius: 9px;
+    color: white;
+    text-decoration: none;
+    transition: .2s; /* Suaviza os efeitos de hover */
+}
+
+/* Alinhamento dos ícones da barra lateral */
+.menu-item i 
+{
+    width: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* Efeito visual ao passar o ponteiro do mouse */
+.menu-item:hover 
+{
+    background: #181818;
+}
+
+/* Destaque para o link referente à página atual */
+.menu-item.ativo 
+{
+    background: #21160e;
+    color: #ff7200;
+    border: 1px solid #ff7200;
+}
+
+/* Seção no final da sidebar (ex: botão de Sair ou Configurações) */
+.menu-final 
+{
+    margin-top: auto; /* Empurra o item para o fundo da sidebar */
+    border-top: 1px solid #292929;
+    padding-top: 15px;
+}
+
+/* ÁREA DE CONTEÚDO PRINCIPAL E CABEÇALHO (TOPO)*/
+/* Container do conteúdo que dá a margem correta para a sidebar fixada */
+.conteudo 
+{
+    margin-left: 250px;
+    min-height: 100vh;
+    padding: 30px 40px;
+    /* Efeito de brilho radial alaranjado suave no fundo */
+    background: radial-gradient(circle at 80% 20%, rgba(255,90,0,.05), transparent 30%), #050608;
+}
+
+/* Cabeçalho com o título da página e perfil do usuário */
+.topo 
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.topo h1 
+{
+    font-size: 34px;
+}
+
+.topo p 
+{
+    color: #aaa;
+    margin-top: 5px;
+}
+
+/* Área de perfil do usuário logado */
+.usuario 
+{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.usuario strong 
+{
+    font-size: 15px;
+}
+
+.usuario > i 
+{
+    color: #aaa;
+    font-size: 12px;
+}
+
+/* Ícones circulares de foto de perfil (Avatar) */
+.avatar 
+{
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 2px solid #ff7200;
+    color: #ff7200;
+    background: #151515;
+}
+
+/* Variação maior do avatar usada dentro dos painéis da dashboard */
+.avatar.grande 
+{
+    width: 65px;
+    height: 65px;
+    font-size: 25px;
+}
+
+/* BANNER DE DESTAQUE (HERO BANNER)*/
+/* Cartão grande de destaque com imagem de fundo e gradiente para escurecer */
+.banner 
+{
+    height: 330px;
+    border: 1px solid #292929;
+    border-radius: 15px;
+    overflow: hidden;
+    background: linear-gradient(90deg, rgba(0,0,0,.85), rgba(0,0,0,.25)), url("../img/fundo-home.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 50px;
+}
+
+.banner-conteudo 
+{
+    max-width: 550px;
+}
+
+.banner h2 
+{
+    font-size: 42px;
+    line-height: 1.15;
+    margin-bottom: 18px;
+}
+
+.banner p 
+{
+    color: #ddd;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.banner button 
+{
+    background: #ff7200;
+    border: none;
+    color: white;
+    padding: 15px 22px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.banner button i 
+{
+    margin-left: 12px;
+}
+
+/* ÁREA PRINCIPAL (GRID DE CARDS E PAINÉIS LATERAIS)*/
+/* Divide a tela entre o catálogo de destinos e a barra de informações do usuário */
+.area-principal 
+{
+    display: grid;
+    grid-template-columns: 1fr 310px;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+/* Cabeçalho das seções internas */
+.titulo-secao 
+{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.titulo-secao i 
+{
+    color: #ff7200;
+    font-size: 21px;
+}
+
+.titulo-secao h2 
+{
+    font-size: 21px;
+}
+
+/* CARDS DE VIAGENS / DESTINOS */
+/* Grade contendo as 3 colunas de opções de destino */
+.cards 
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.card 
+{
+    background: #0d0f11;
+    border: 1px solid #292929;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.card img 
+{
+    width: 100%;
+    height: 145px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-info 
+{
+    padding: 17px;
+}
+
+.card-info h3 
+{
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.card-info p 
+{
+    color: #999;
+    font-size: 13px;
+    margin-bottom: 2px;
+}
+
+.card-info strong 
+{
+    color: #ff7200;
+    font-size: 20px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.card-info button 
+{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ff7200;
+    border-radius: 7px;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+}
+
+.card-info button i 
+{
+    float: right;
+    color: #ff7200;
+}
+
+/* PAINÉIS LATERAIS (DADOS DO USUÁRIO E PRÓXIMA VIAGEM)*/
+.painel 
+{
+    background: #0d0f11;
+    border: 1px solid #292929;
+    border-radius: 14px;
+    padding: 22px;
+    margin-bottom: 18px;
+}
+
+.painel h2 
+{
+    font-size: 19px;
+}
+
+/* Linha divisória horizontal */
+.linha 
+{
+    height: 1px;
+    background: #292929;
+    margin: 15px 0 20px;
+}
+
+/* Resumo da Conta do Usuário */
+.dados-usuario 
+{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.dados-usuario h3 
+{
+    font-size: 16px;
+}
+
+.dados-usuario p 
+{
+    color: #999;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+/* Detalhes da Próxima Viagem Agendada */
+.viagem-info 
+{
+    display: flex;
+    gap: 15px;
+}
+
+.viagem-info img 
+{
+    width: 90px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.viagem-info h3 
+{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.viagem-info p 
+{
+    color: #aaa;
+    font-size: 12px;
+    margin: 7px 0;
+}
+
+.viagem-info p i 
+{
+    width: 18px;
+    color: #ccc;
+}
+
+.viagem-info .assento 
+{
+    color: #ff7200;
+}
+
+/* Botão de gerenciar reserva */
+.btn-reserva 
+{
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    border: none;
+    border-radius: 7px;
+    background: #181818;
+    color: white;
+    cursor: pointer;
+}
+
+/* SEÇÃO DE BENEFÍCIOS DO SISTEMA */
+.beneficios 
+{
+    background: #0d0f11;
+    border: 1px solid #292929;
+    border-radius: 14px;
+    margin-top: 25px;
+    padding: 25px 30px;
+}
+
+/* Título centralizado com linhas decorativas nas pontas */
+.titulo-beneficios 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.titulo-beneficios span 
+{
+    height: 1px;
+    flex: 1;
+    background: #ff7200;
+}
+
+.titulo-beneficios h2 
+{
+    font-size: 21px;
+    white-space: nowrap;
+}
+
+/* Grade horizontal com os 4 diferenciais do serviço */
+.beneficios-grid 
+{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.beneficio 
+{
+    display: flex;
+    gap: 15px;
+    padding: 5px 25px;
+    border-right: 1px solid #292929;
+}
+
+.beneficio:last-child 
+{
+    border-right: none; /* Remove a borda do último item */
+}
+
+.beneficio > i 
+{
+    color: #ff7200;
+    font-size: 30px;
+    margin-top: 4px;
+}
+
+.beneficio h3 
+{
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.beneficio p 
+{
+    color: #999;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+/* RODAPÉ (FOOTER)*/
+footer 
+{
+    text-align: center;
+    padding: 25px 0 10px;
+    color: #666;
+    font-size: 12px;
+}
+
+/* RESPONSIVIDADE (MEDIA QUERIES)*/
+/* Telas Médias / Desktops Pequenos (Até 1100px) */
+@media (max-width: 1100px) 
+{
+    .area-principal 
+    {
+        grid-template-columns: 1fr; /* Empilha a lateral abaixo do conteúdo */
+    }
+
+    .lateral 
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Exibe os painéis da lateral lado a lado */
+        gap: 15px;
+    }
+
+    .painel 
+    {
+        margin-bottom: 0;
+    }
+
+    .beneficios-grid 
+    {
+        grid-template-columns: 1fr 1fr; /* Transforma benefícios em 2 colunas */
+    }
+
+    .beneficio 
+    {
+        margin-bottom: 20px;
+        border-right: none;
+    }
+}
+
+/* Tablets e Dispositivos Móveis Grandes (Até 800px) */
+@media (max-width: 800px) 
+{
+    /* Recolhe a barra lateral para exibir apenas os ícones */
+    .sidebar 
+    {
+        width: 70px;
+        padding: 15px 10px;
+    }
+
+    .logo-area img 
+    {
+        width: 55px;
+    }
+
+    .menu-item 
+    {
+        justify-content: center;
+        padding: 0;
+        gap: 0;
+    }
+
+    /* Esconde os textos dos links */
+    .menu-item span 
+    {
+        display: none;
+    }
+
+    /* Ajusta a margem do conteúdo para a nova largura da sidebar */
+    .conteudo 
+    {
+        margin-left: 70px;
+        padding: 20px;
+    }
+
+    .cards 
+    {
+        grid-template-columns: 1fr; /* Exibe os cards de viagem em coluna única */
+    }
+
+    .banner 
+    {
+        padding: 30px;
+        height: 300px;
+    }
+
+    .banner h2 
+    {
+        font-size: 30px;
+    }
+
+    .lateral 
+    {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Smartphones (Até 550px) */
+@media (max-width: 550px) 
+{
+    .conteudo 
+    {
+        padding: 15px;
+    }
+
+    .topo h1 
+    {
+        font-size: 25px;
+    }
+
+    /* Esconde detalhes do usuário no topo para economizar espaço */
+    .usuario strong,
+    .usuario > i 
+    {
+        display: none;
+    }
+
+    .banner 
+    {
+        height: 330px;
+        padding: 25px;
+    }
+
+    .banner h2 
+    {
+        font-size: 27px;
+    }
+
+    .beneficios-grid 
+    {
+        grid-template-columns: 1fr; /* Benefícios empilhados em 1 coluna */
+    }
+
+    .titulo-beneficios h2 
+    {
+        font-size: 17px;
+    }
+
+    .titulo-beneficios span 
+    {
+        display: none; /* Oculta as linhas decorativas do título */
+    }
+}
+
